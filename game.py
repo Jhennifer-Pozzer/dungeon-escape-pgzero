@@ -19,7 +19,7 @@ COLOR_GOLD = (255, 215, 0)
 STATE_MENU = "menu"
 STATE_PLAYING = "playing"
 STATE_GAMEOVER = "gameover"
-STATE_WIN = "win" # Novo estado simples caso pegue tudo
+STATE_WIN = "win" 
 
 # --- GLOBAL VARIABLES ---
 game_state = STATE_MENU
@@ -156,7 +156,7 @@ def setup_game():
     enemies.append(Enemy((600, 300), territory_radius=120))
     enemies.append(Enemy((400, 500), territory_radius=100))
     
-    # Criar 5 moedas em posições aleatórias (longe do inicio)
+    # Criar 5 moedas em posições aleatórias 
     coins = []
     for _ in range(5):
         cx = random.randint(200, WIDTH - 50)
@@ -198,16 +198,14 @@ def update(dt):
                 if sound_enabled: music.stop()
 
         # Update Coins (Coleta)
-        # Usamos [:] para iterar sobre uma cópia da lista, pois vamos remover itens
         for coin in coins[:]: 
             if hero.actor.colliderect(coin.actor):
                 coins.remove(coin)
                 score += 10
-                play_sound_effect("click") # Som de moeda (usando click por enquanto)
+                play_sound_effect("click")
                 
         # Win condition (opcional)
         if len(coins) == 0 and len(enemies) > 0:
-            # Você pode adicionar lógica de vitória aqui se quiser
             pass
 
 def draw():

@@ -18,11 +18,11 @@ def create_image(name, color, size=(32, 32), shape="rect"):
     surface = pygame.Surface(size, pygame.SRCALPHA) # Transparência
     
     if shape == "circle":
-        # Desenha circulo (moeda)
+        # Desenha circulo 
         pygame.draw.circle(surface, color, (16, 16), 14)
         pygame.draw.circle(surface, (255, 255, 255), (16, 16), 14, 2)
     else:
-        # Desenha quadrado (personagens)
+        # Desenha quadrado 
         surface.fill(color)
         pygame.draw.rect(surface, (255, 255, 255), (0, 0, size[0], size[1]), 2)
     
@@ -56,7 +56,7 @@ def main():
     create_image("menu_bg", COLORS["bg"], size=(800, 600))
     create_image("tile_floor", COLORS["floor"], size=(800, 600))
     
-    print("\n✅ Imagens atualizadas com a MOEDA!")
+    print("\n Imagens atualizadas com a MOEDA!")
 
 if __name__ == "__main__":
     main()
